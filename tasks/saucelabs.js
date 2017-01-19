@@ -77,7 +77,7 @@ module.exports = function (grunt) {
       type: 'tunnelOpen'
     });
 
-    tunnel = new SauceTunnel(arg.username, arg.key(), arg.identifier, true, ['-P', '0'].concat(arg.tunnelArgs));
+    tunnel = new SauceTunnel(arg.username, arg.key(), arg.identifier, true, ['-P', '0', '-B', 'all'].concat(arg.tunnelArgs));
 
     ['write', 'writeln', 'error', 'ok', 'debug'].forEach(function (method) {
       tunnel.on('log:' + method, function (text) {
